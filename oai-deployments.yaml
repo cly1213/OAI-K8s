@@ -1,0 +1,209 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: db
+  labels:
+    app: db
+spec:
+  ports:
+    - port: 3306
+      targetPort: 3306
+  selector:
+    app: db
+  clusterIP: None
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hss
+  labels:
+    app: hss
+spec:
+  selector:
+    app: hss
+  clusterIP: None
+---  
+apiVersion: v1
+kind: Service
+metadata:
+  name: mme
+  labels:
+    app: mme
+spec:
+  selector:
+    app: mme
+  clusterIP: None
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spgw
+  labels:
+    app: spgw
+spec:
+  selector:
+    app: spgw
+  clusterIP: None
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: enb
+  labels:
+    app: enb
+spec:
+  selector:
+    app: enb
+  clusterIP: None
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db
+  labels:
+    app: db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      hostname: db
+      containers:
+      - name: db
+        image: cly1213/oai_db_deploy:v3
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: linux
+        ports:
+        - containerPort: 3306
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hss
+  labels:
+    app: hss
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hss
+  template:
+    metadata:
+      labels:
+        app: hss
+    spec:
+      hostname: hss
+      containers:
+      - name: hss
+        image: cly1213/hss:0.9
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mme
+  labels:
+    app: mme
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mme
+  template:
+    metadata:
+      labels:
+        app: mme
+    spec:
+      hostname: mme
+      containers:
+      - name: mme
+        image: cly1213/mme:0.9
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spgw
+  labels:
+    app: spgw
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spgw
+  template:
+    metadata:
+      labels:
+        app: spgw
+    spec:
+      hostname: spgw
+      containers:
+      - name: spgw
+        image: cly1213/spgw:0.9
+        securityContext:
+          privileged: true
+        volumeMounts:
+          - mountPath: /dev
+            name: dev
+          - mountPath: /usr/src
+            name: src
+          - mountPath: /lib/modules
+            name: modules
+      volumes:
+      - name: dev
+        hostPath:
+          path: /dev
+      - name: src
+        hostPath:
+          path: /usr/src
+      - name: modules
+        hostPath:
+          path: /lib/modules
+      nodeSelector:
+        labServer: "334"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: enb
+  labels:
+    app: enb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: enb
+  template:
+    metadata:
+      labels:
+        app: enb
+    spec:
+      hostname: enb
+      containers:
+      - name: enb
+        image: cly1213/enb:0.9
+        securityContext:
+          privileged: true
+        volumeMounts:
+          - mountPath: /dev
+            name: dev
+          - mountPath: /usr/src
+            name: src
+          - mountPath: /lib/modules
+            name: modules
+      volumes:
+      - name: dev
+        hostPath:
+          path: /dev
+      - name: src
+        hostPath:
+          path: /usr/src
+      - name: modules
+        hostPath:
+          path: /lib/modules
+      nodeSelector:
+        labServer: "334"
