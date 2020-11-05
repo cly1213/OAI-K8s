@@ -1,5 +1,5 @@
 ## https://hub.docker.com/u/cly1213
-FROM cly1213/oai_enb:v5 
+FROM cly1213/enb:v5 
 MAINTAINER Leo Chen 
 
 #To Do
