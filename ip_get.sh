@@ -34,22 +34,20 @@ NEW_IP_ENB=${NEW_IP_ENB%)*}
 echo $NEW_IP_ENB
 
 #hss.conf
-#sed -i "s/REPLACED_BY_MY_DB_IPV4/${NEW_IP_DB}/g" /usr/local/etc/oai/hss.conf
+sed -i "s/REPLACED_BY_MY_DB_IPV4/${NEW_IP_DB}/g" /usr/local/etc/oai/hss.conf
 
 #mme.conf
-#sed -i "s/REPLACED_BY_MY_MME_IPV4/${NEW_IP_MME}/g" /usr/local/etc/oai/mme.conf
+sed -i "s/REPLACED_BY_MY_MME_IPV4/${NEW_IP_MME}/g" /usr/local/etc/oai/mme.conf
 
-#sed -i "s/REPLACED_BY_MY_SPGW_IPV4/${NEW_IP_SPGW}/g" /usr/local/etc/oai/mme.conf
+sed -i "s/REPLACED_BY_MY_SPGW_IPV4/${NEW_IP_SPGW}/g" /usr/local/etc/oai/mme.conf
 
-#sed -i "s/REPLACED_BY_MY_HSS_IPV4/${NEW_IP_HSS}/g" /usr/local/etc/oai/freeDiameter/mme_fd.conf
+sed -i "s/REPLACED_BY_MY_HSS_IPV4/${NEW_IP_HSS}/g" /usr/local/etc/oai/freeDiameter/mme_fd.conf
 
 #spgw.conf
-#sed -i "s/REPLACED_BY_MY_SPGW_IPV4/${NEW_IP_SPGW}/g" /usr/local/etc/oai/spgw.conf
+sed -i "s/REPLACED_BY_MY_SPGW_IPV4/${NEW_IP_SPGW}/g" /usr/local/etc/oai/spgw.conf
 
-#enb.config
-#REPLACED_BY_MY_ENB_IPV4
-#REPLACED_BY_MY_HSS_IPV4
-#REPLACED_BY_MY_MME_IPV4
+#enb.conf
+
 echo "Hi, I'm waiting for 3 seconds..."
 sleep 3
 
