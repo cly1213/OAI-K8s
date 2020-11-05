@@ -1,4 +1,4 @@
-# oai-k8s
+# OpenAirInterface on Kubernetes(OAI-K8s)
 ```bash=
 kubectl label node oai-k8s-3 labServer=334
 
