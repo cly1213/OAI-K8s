@@ -13,7 +13,6 @@ $ cp -rp ~/opencells-mods/config_epc/* /usr/local/etc/oai
 $ cd openair-cn; source oaienv; cd scripts
 $ ./check_hss_s6a_certificate /usr/local/etc/oai/freeDiameter hss.OpenAir5G.Alliance
 
-
 # Install SW for EPC
 $ cd openair-cn; source oaienv; cd scripts
 $ ./build_hss -i
