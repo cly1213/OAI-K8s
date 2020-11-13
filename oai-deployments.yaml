@@ -191,19 +191,9 @@ spec:
         volumeMounts:
           - mountPath: /dev
             name: dev
-          - mountPath: /usr/src
-            name: src
-          - mountPath: /lib/modules
-            name: modules
       volumes:
       - name: dev
         hostPath:
           path: /dev
-      - name: src
-        hostPath:
-          path: /usr/src
-      - name: modules
-        hostPath:
-          path: /lib/modules
       nodeSelector:
         labServer: "334"
