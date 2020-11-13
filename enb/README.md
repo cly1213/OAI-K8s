@@ -23,12 +23,13 @@ $ cd openair-cn
 $ git checkout -b 724542d0b59797b010af8c5df15af7f669c1e838
 $ git checkout develop
 $ git apply ~/opencells-mods/EPC.patch
-
+$ cd ~
 $ cd openairinterface5g/cmake_targets
 $ sudo ./build_oai -I
 $ sudo ./build_oai -w USRP --eNB --UE
 
 $ cd ~/openairinterface5g/cmake_targets/lte_build_oai/build
+$ cp lte-softmodem ~
 
 # Verify that USRP is working
 $ uhd_find_devices
