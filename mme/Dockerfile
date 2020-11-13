@@ -18,12 +18,16 @@ RUN git checkout develop
 RUN git apply /root/opencells-mods/EPC.patch
 
 WORKDIR /root
+COPY ip_get.sh .
+COPY mme.conf /usr/local/etc/oai/
+COPY mme_fd.conf /usr/local/etc/oai/freeDiameter/
 
 RUN mkdir -p /usr/local/etc/oai
 RUN cp -rp /root/opencells-mods/config_epc/* /usr/local/etc/oai
 
 WORKDIR openair-cn/scripts
-RUN ./check_mme_s6a_certificate /usr/local/etc/oai/freeDiameter mme.OpenAir5G.Alliance
-RUN ./build_mme -i -F
-RUN ./build_mme
+#RUN ./check_mme_s6a_certificate /usr/local/etc/oai/freeDiameter mme.OpenAir5G.Alliance
+#RUN ./build_mme -i
+#RUN ./build_mme
+#RUN cp run_mme /root
 
