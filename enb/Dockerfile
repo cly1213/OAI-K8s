@@ -10,7 +10,6 @@ RUN apt-get install libuhd-dev libuhd003 uhd-host -y
 
 RUN echo -n | openssl s_client -showcerts -connect gitlab.eurecom.fr:443 2>/dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' >> /etc/ssl/certs/ca-certificates.crt
 
-
 WORKDIR /root
 RUN git clone https://gitlab.eurecom.fr/oai/openairinterface5g.git
 WORKDIR openairinterface5g
@@ -21,11 +20,12 @@ RUN git checkout -b edb74831dabf79686eb5a92fbf8fc06e6b267d35
 RUN git branch -v
 
 #WORKDIR cmake_targets
-#RUN ./build_oai -I
-#RUN ./build_oai -w USRP --eNB --UE
+#RUN sudo ./build_oai -I
+#RUN sudo ./build_oai -w USRP --eNB --UE
 
 RUN /usr/lib/uhd/utils/uhd_images_downloader.py
 WORKDIR /root
+COPY ip_get.sh .
 
 #Verify that USRP is working
 #RUN uhd_find_devices

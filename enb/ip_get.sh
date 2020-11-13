@@ -5,8 +5,8 @@ MME="mme"
 SPGW="spgw"
 ENB="enb"
 
-echo "Hi, I'm waiting for 120 seconds..."
-sleep 120
+echo "Hi, I'm waiting for 60 seconds..."
+sleep 60
 
 NEW_IP_DB=$(ping $DB -c 1 | grep "PING $DB" | awk '{print $3}')
 NEW_IP_DB=${NEW_IP_DB#*(}
