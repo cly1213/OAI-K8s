@@ -29,6 +29,7 @@ $ sudo ./build_oai -I
 $ sudo ./build_oai -w USRP --eNB --UE
 
 $ cd ~/openairinterface5g/cmake_targets/lte_build_oai/build
+$ cp lte-softmodem ~
 
 # Verify that USRP is working
 $ uhd_find_devices
