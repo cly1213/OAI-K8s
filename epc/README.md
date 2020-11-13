@@ -1,6 +1,7 @@
 # EPC
 docker build -t epc_test:1 .
-docker run -it --privileged --rm --name="oai_epc" -v /dev/bus/usb:/dev/bus/usb -v /lib/modules:/lib/modules epc_test:1
+
+docker run -it --privileged --name="oai_epc" --cap-add=ALL -v /dev:/dev -v /usr/src:/usr/src -v /dev/bus/usb:/dev/bus/usb -v /lib/modules:/lib/modules epc_test:1
 ```bash=
 ##Install this configuration for EPC
 ##For the EPC, we install in OAI default directory: /usr/local/etc/oai
@@ -19,6 +20,7 @@ $ sudo ./build_hss -i
 #Do you want to install freeDiameter 1.2.0 ? <y/N> y
 
 $ sudo ./build_mme -i
+#Do you want to install freeDiameter 1.2.0 ? <y/N> n
 #Do you want to install asn1c rev 1516 patched? <y/N> y
 #Do you want to install libgtpnl ? <y/N> y
 #Should non-superusers be able to capture packets? [yes/no] yes
