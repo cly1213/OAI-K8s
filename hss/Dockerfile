@@ -18,3 +18,11 @@ RUN git checkout develop
 RUN git apply /root/opencells-mods/EPC.patch
 
 WORKDIR /root
+
+RUN mkdir -p /usr/local/etc/oai
+RUN cp -rp /root/opencells-mods/config_epc/* /usr/local/etc/oai
+
+WORKDIR openair-cn/scripts
+RUN ./check_hss_s6a_certificate /usr/local/etc/oai/freeDiameter hss.OpenAir5G.Alliance
+RUN ./build_hss -i -F
+RUN ./build_hss

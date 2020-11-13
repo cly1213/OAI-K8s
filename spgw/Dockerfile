@@ -18,3 +18,10 @@ RUN git checkout develop
 RUN git apply /root/opencells-mods/EPC.patch
 
 WORKDIR /root
+
+RUN mkdir -p /usr/local/etc/oai
+RUN cp -rp /root/opencells-mods/config_epc/* /usr/local/etc/oai
+
+WORKDIR openair-cn/scripts
+RUN ./build_spgw -i -F
+RUN ./build_spgw
