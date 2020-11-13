@@ -5,8 +5,8 @@ MME="mme"
 SPGW="spgw"
 ENB="enb"
 
-echo "Hi, I'm waiting for 60 seconds..."
-sleep 60
+echo "Hi, I'm waiting for 30 seconds..."
+sleep 30
 
 NEW_IP_DB=$(ping $DB -c 1 | grep "PING $DB" | awk '{print $3}')
 NEW_IP_DB=${NEW_IP_DB#*(}
@@ -35,4 +35,5 @@ echo $NEW_IP_ENB
 
 #hss.conf
 sed -i "s/REPLACED_BY_MY_DB_IPV4/${NEW_IP_DB}/g" /usr/local/etc/oai/hss.conf
+
 echo "Done!"

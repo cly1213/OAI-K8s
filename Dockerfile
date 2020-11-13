@@ -26,12 +26,3 @@ WORKDIR openair-cn/scripts
 RUN ./check_hss_s6a_certificate /usr/local/etc/oai/freeDiameter hss.OpenAir5G.Alliance
 RUN ./build_hss -i -F
 RUN ./build_hss
-RUN cp run_hss /root
-
-WORKDIR /root
-COPY ip_get.sh .
-COPY hss.conf /usr/local/etc/oai/
-
-#To Do
-#CMD ./ip_get.sh; ./run_hss
-
