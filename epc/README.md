@@ -1,7 +1,7 @@
 # EPC
 docker build -t epc_test:1 .
 docker run -it --privileged --rm --name="oai_epc" -v /dev/bus/usb:/dev/bus/usb -v /lib/modules:/lib/modules epc_test:1
-
+```bash=
 ##Install this configuration for EPC
 ##For the EPC, we install in OAI default directory: /usr/local/etc/oai
 
@@ -32,3 +32,4 @@ $ sudo ./build_spgw -i
 $ sudo ./build_hss
 $ sudo ./build_mme
 $ sudo ./build_spgw
+```
