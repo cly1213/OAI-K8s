@@ -1,5 +1,7 @@
 # OpenAirInterface on Kubernetes(OAI-K8s)
 ```bash=
+rke up
+
 export KUBECONFIG=~/.kube/config.oai
 
 kubectl label node oai-k8s-3 labServer=334

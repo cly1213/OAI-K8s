@@ -1,7 +1,9 @@
 # EPC
+```bash=
 docker build -t epc_test:1 .
 
 docker run -it --privileged --name="oai_epc" --cap-add=ALL -v /dev:/dev -v /usr/src:/usr/src -v /dev/bus/usb:/dev/bus/usb -v /lib/modules:/lib/modules epc_test:1
+```
 ```bash=
 ##Install this configuration for EPC
 ##For the EPC, we install in OAI default directory: /usr/local/etc/oai
