@@ -4,7 +4,7 @@ ENV TZ=Asia/Taipei
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update
-RUN apt-get install iputils-ping software-properties-common git wget psmisc net-tools vim zip sudo -y
+RUN apt-get install software-properties-common git wget psmisc net-tools vim zip sudo -y
 
 WORKDIR /root 
 RUN wget https://raw.githubusercontent.com/cly1213/oai/master/opencells-mods-20190923.tgz
