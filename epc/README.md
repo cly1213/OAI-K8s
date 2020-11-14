@@ -37,3 +37,7 @@ $ sudo ./build_hss
 $ sudo ./build_mme
 $ sudo ./build_spgw
 ```
+
+```bash=
+docker commit [containerID] epc_test:2
+```
