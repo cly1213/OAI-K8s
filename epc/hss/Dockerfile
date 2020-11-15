@@ -7,5 +7,5 @@ COPY hss.conf /usr/local/etc/oai/
 RUN cp /root/openair-cn/scripts/run_hss /root
 
 #To Do
-#CMD ./ip_get.sh; ./run_hss
+CMD ./ip_get.sh; ./run_hss
 
