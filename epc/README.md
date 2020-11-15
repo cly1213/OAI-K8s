@@ -17,7 +17,7 @@ $ ./check_hss_s6a_certificate /usr/local/etc/oai/freeDiameter hss.OpenAir5G.Alli
 $ ./check_mme_s6a_certificate /usr/local/etc/oai/freeDiameter mme.OpenAir5G.Alliance
 
 ##Install SW for EPC
-$ cd openair-cn; source oaienv; cd scripts
+$ cd ~/openair-cn; source oaienv; cd scripts
 
 $ sudo ./build_hss -i
 #Do you want to install freeDiameter 1.2.0 ? <y/N> y
