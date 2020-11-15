@@ -2,5 +2,5 @@
 
 ```bash=
 $ cd oai-k8s/db/my-mysql
-$ docker build -t oai_db .
+$ docker build -t db_test:1 .
 ```
