@@ -1,6 +1,6 @@
 # oai_db
 
 ```bash=
-$ cd ~/my-mysql/
+$ cd oai-k8s/db/my-mysql
 $ docker build -t oai_db .
 ```
