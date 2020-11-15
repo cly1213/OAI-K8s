@@ -10,4 +10,4 @@ COPY spgw.conf /usr/local/etc/oai
 RUN cp /root/openair-cn/scripts/run_spgw /root
 
 #To Do
-#CMD ./ip_get.sh; ./run_spgw
+CMD ./ip_get.sh; ./run_spgw
