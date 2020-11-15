@@ -8,4 +8,4 @@ COPY mme_fd.conf /usr/local/etc/oai/freeDiameter/
 RUN cp /root/openair-cn/scripts/run_mme /root
 
 #To Do
-#CMD ./ip_get.sh; ./run_mme
+CMD ./ip_get.sh; ./run_mme
