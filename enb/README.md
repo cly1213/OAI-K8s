@@ -18,4 +18,11 @@ $ cp lte-softmodem ~
 # Verify that USRP is working
 $ uhd_find_devices
 $ uhd_usrp_probe
+
+##To exit out of the container
+$ exit
+```
+```bash=
+##Commit changes to image. 
+docker commit [containerID] epc_test:2
 ```
