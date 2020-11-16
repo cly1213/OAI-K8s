@@ -7,7 +7,11 @@ RUN apt-get update
 RUN apt-get install software-properties-common git wget psmisc net-tools vim zip sudo -y
 RUN add-apt-repository ppa:ettusresearch/uhd
 RUN apt-get install libuhd-dev libuhd003 uhd-host -y
+<<<<<<< HEAD
 RUN apt-get install iputils-ping -y
+=======
+RUN RUN apt-get install iputils-ping -y
+>>>>>>> f3868072f9a41f098257257264a0970463a7d399
 
 RUN echo -n | openssl s_client -showcerts -connect gitlab.eurecom.fr:443 2>/dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' >> /etc/ssl/certs/ca-certificates.crt
 
