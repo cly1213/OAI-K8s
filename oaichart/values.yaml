@@ -4,11 +4,16 @@
 
 replicaCount: 1
 
-image:
-  repository: nginx
-  pullPolicy: IfNotPresent
+#different_images:
+#  - cly1213/db_test
+#  - cly1213/hss_test
+#  - cly1213/mme_test
+#  - cly1213/spgw_test
+
+  #pullPolicy: always
+
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  #tag: "1"
 
 imagePullSecrets: []
 nameOverride: ""
