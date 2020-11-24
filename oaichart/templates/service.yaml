@@ -1,0 +1,57 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: db
+  labels:
+    app: db
+spec:
+  ports:
+    - port: 3306
+      targetPort: 3306
+  selector:
+    app: db
+  clusterIP: None
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hss
+  labels:
+    app: hss
+spec:
+  selector:
+    app: hss
+  clusterIP: None
+---  
+apiVersion: v1
+kind: Service
+metadata:
+  name: mme
+  labels:
+    app: mme
+spec:
+  selector:
+    app: mme
+  clusterIP: None
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spgw
+  labels:
+    app: spgw
+spec:
+  selector:
+    app: spgw
+  clusterIP: None
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: enb
+  labels:
+    app: enb
+spec:
+  selector:
+    app: enb
+  clusterIP: None
