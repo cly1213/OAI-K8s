@@ -1,0 +1,76 @@
+# An example of an HA Kubernetes cluster for OAI test
+nodes:
+- address: 140.113.164.145
+  port: "22"
+  internal_address: ""
+  role:
+  - controlplane
+  - etcd
+  user: leo
+  hostname_override: "oai-control-1"
+  docker_socket: /var/run/docker.sock
+  ssh_key_path: "~/.ssh/id_rsa"
+
+- address: 140.113.164.146
+  port: "22"
+  internal_address: ""
+  role:
+  - worker
+  user: leo
+  hostname_override: "oai-k8s-1"
+  docker_socket: /var/run/docker.sock
+  ssh_key_path: "~/.ssh/id_rsa"
+
+- address: 140.113.164.150
+  port: "22"
+  internal_address: ""
+  role:
+  - worker
+  user: leo
+  hostname_override: "oai-k8s-2"
+  docker_socket: /var/run/docker.sock
+  ssh_key_path: "~/.ssh/id_rsa"
+
+- address: 140.113.164.34
+  port: "22"
+  internal_address: ""
+  role:
+  - worker
+  user: leo
+  hostname_override: "oai-k8s-3"
+  docker_socket: /var/run/docker.sock
+  ssh_key_path: "~/.ssh/id_rsa"
+
+services:
+  kube-api:
+    service_cluster_ip_range: 10.43.0.0/16
+    pod_security_policy: false
+    always_pull_images: false
+  kube-controller:
+    cluster_cidr: 10.42.0.0/16
+    service_cluster_ip_range: 10.43.0.0/16
+  kubelet:
+    cluster_domain: cluster.local
+    cluster_dns_server: 10.43.0.10
+    fail_swap_on: false
+
+network:
+  plugin: canal
+authentication:
+  strategy: x509
+ssh_key_path: "~/.ssh/id_rsa"
+ssh_agent_auth: false
+authorization:
+  mode: rbac
+ignore_docker_version: false
+kubernetes_version: "v1.15.11-rancher1-2"
+
+private_registries:
+- url: nexus3.onap.org:10001
+  user: docker
+  password: docker
+  is_default: true
+cluster_name: "oai"
+restore:
+  restore: false
+  snapshot_name: ""
