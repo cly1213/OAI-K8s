@@ -1,6 +1,6 @@
 # helm chart
 ```bash=
-helm creat oaichart
+helm create oaichart
 
 cd oaichart/templates
 
