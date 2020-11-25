@@ -11,7 +11,7 @@ vim service.yaml
 cd ..
 
 helm install oai .
-# helm uninstall oai .
+helm delete oai
 
 helm list
 ```
