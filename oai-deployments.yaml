@@ -75,7 +75,7 @@ spec:
       hostname: db
       containers:
       - name: db
-        image: cly1213/oai_db_deploy:v3
+        image: cly1213/db_test:1
         env:
         - name: MYSQL_ROOT_PASSWORD
           value: linux
@@ -101,7 +101,7 @@ spec:
       hostname: hss
       containers:
       - name: hss
-        image: cly1213/hss:0.9
+        image: cly1213/hss_test:1
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -122,7 +122,7 @@ spec:
       hostname: mme
       containers:
       - name: mme
-        image: cly1213/mme:0.9
+        image: cly1213/mme_test:1
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -143,7 +143,7 @@ spec:
       hostname: spgw
       containers:
       - name: spgw
-        image: cly1213/spgw:0.9
+        image: cly1213/spgw_test:1
         securityContext:
           privileged: true
         volumeMounts:
@@ -185,7 +185,7 @@ spec:
       hostname: enb
       containers:
       - name: enb
-        image: cly1213/enb:0.9
+        image: cly1213/enb_test:3
         securityContext:
           privileged: true
         volumeMounts:
